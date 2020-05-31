@@ -2,8 +2,8 @@ from math import gcd
 from functools import reduce
 import itertools
 
-text = input("Text eingeben: ")
-min_letters = int(input("Mindestanzahl an Buchstaben pro Gruppe eingeben: "))
+text = input("Input text: ").upper()
+min_letters = int(input("Mininum number of letters per duplicate group: "))
 text_size = len(text)
 duplicates = {}
 unique_duplicates = {}
@@ -13,6 +13,9 @@ alfa = "abcdefghijklmnopqrstuvwxyz"
 letters = []
 sorted_letters = []
 encrypted_sorted_letters = []
+if " " in text:
+    text = text.split(" ")
+    text = "".join(text)
 
 for start_letter in range(0, text_size + 1):
     for letter_index in range(start_letter, text_size - 1):
@@ -80,5 +83,7 @@ for letters in sorted_letters:
 print(encrypted_sorted_letters)
 
 possibilities = list(itertools.product(*encrypted_sorted_letters))
-for word in possibilities:
+for index,word in enumerate(possibilities):
+    if index > 50:
+        break
     print("".join(word))
