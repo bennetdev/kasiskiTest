@@ -98,7 +98,7 @@ print(sorted_letters)
 #iterate over the sorted_letters
 for letters in sorted_letters:
     encrypted_letters = []
-    #iterate over letters
+    #iterate over current array letters
     for letter in letters:
         #get alphabet index if current letter
         letter_index = alfa.index(letter.lower())
